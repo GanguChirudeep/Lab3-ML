@@ -25,19 +25,6 @@ print(f'Intraclass spread (variance) for Class B: {intra_class_var_b}')
 print(f'Interclass distance between Class A and Class B: {inter_class_distance}')
 
 
-# In[27]:
-
-
-unique_classes = df['Label'].unique()
-class_centroids = {}
-for class_label in unique_classes:
-    class_data = df[df['Label'] == class_label]
-    class_mean = np.mean(class_data[['embed_1', 'embed_2']], axis=0)
-    class_centroids[class_label] = class_mean
-for class_label, centroid in class_centroids.items():
-    print(f'Class {class_label} Centroid: {centroid}')
-
-
 # In[6]:
 
 
