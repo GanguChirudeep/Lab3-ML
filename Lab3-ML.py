@@ -237,62 +237,6 @@ print("Predicted Classes for the Test Vectors:")
 print(predicted_classes)
 
 
-# In[14]:
-
-
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import accuracy_score
-
-# Define your feature vectors (X_train, X_test) and class labels (y_train, y_test)
-# Assuming you have already split your data into training and test sets
-# If not, please refer to the previous code for splitting the data.
-
-# Create arrays to store accuracy values
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
-
-k_values = range(1, 12)
-knn_accuracies = []
-nn_accuracies = []
-
-# Iterate through different values of k
-for k in k_values:
-    # Train k-NN classifier with k=3
-    knn_classifier = KNeighborsClassifier(n_neighbors=k)
-    knn_classifier.fit(X_train, y_train)
-
-    # Predict using k-NN
-    knn_predictions = knn_classifier.predict(X_test)
-
-    # Calculate accuracy for k-NN
-    knn_accuracy = accuracy_score(y_test, knn_predictions)
-    knn_accuracies.append(knn_accuracy)
-
-    # Train NN classifier with k=1
-    nn_classifier = KNeighborsClassifier(n_neighbors=1)
-    nn_classifier.fit(X_train, y_train)
-
-    # Predict using NN
-    nn_predictions = nn_classifier.predict(X_test)
-
-    # Calculate accuracy for NN
-    nn_accuracy = accuracy_score(y_test, nn_predictions)
-    nn_accuracies.append(nn_accuracy)
-
-# Plot the accuracy results
-plt.figure(figsize=(10, 6))
-plt.plot(k_values, knn_accuracies, label='k-NN (k=3)', marker='o')
-plt.plot(k_values, nn_accuracies, label='NN (k=1)', marker='o')
-plt.title('Accuracy vs. k for k-NN and NN')
-plt.xlabel('k')
-plt.ylabel('Accuracy')
-plt.xticks(k_values)
-plt.legend()
-plt.grid(True)
-plt.show()
-
-
 # In[90]:
 
 
