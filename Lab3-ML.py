@@ -400,41 +400,6 @@ print("Recall:", recall_test)
 print("F1-Score:", f1_score_test)
 
 
-# In[17]:
-
-
-from sklearn.metrics import confusion_matrix, classification_report
-
-# Train a k-NN classifier with k=3 on the training data
-neigh = KNeighborsClassifier(n_neighbors=3)
-neigh.fit(X_train, y_train)
-
-# Predict class labels for the training and test data
-y_train_pred = neigh.predict(X_train)
-y_test_pred = neigh.predict(X_test)
-
-# Calculate confusion matrices for training and test data
-confusion_matrix_train = confusion_matrix(y_train, y_train_pred)
-confusion_matrix_test = confusion_matrix(y_test, y_test_pred)
-
-# Generate classification reports for training and test data
-report_train = classification_report(y_train, y_train_pred)
-report_test = classification_report(y_test, y_test_pred)
-
-# Print confusion matrices and classification reports
-print("Confusion Matrix (Training Data):")
-print(confusion_matrix_train)
-print("\nClassification Report (Training Data):")
-print(report_train)
-
-print("\nConfusion Matrix (Test Data):")
-print(confusion_matrix_test)
-print("\nClassification Report (Test Data):")
-print(report_test)
-
-
-# In[ ]:
-
 
 
 
